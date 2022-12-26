@@ -10,11 +10,15 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
+    TextView textTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textTotal = findViewById(R.id.textTotal);
+        textTotal.setVisibility(View.GONE);
 
         increase();
         decrease();
@@ -51,13 +55,15 @@ public class MainActivity extends AppCompatActivity {
         Button btnOrder = findViewById(R.id.btnOrder);
 
         btnOrder.setOnClickListener(view -> {
-            TextView textTotal = findViewById(R.id.textTotal);
-
             int totalPrice = quantity * 15;
 
             String message = "Your total is $ " + totalPrice + "!";
 
             textTotal.setText(message);
+
+            if (totalPrice > 0) {
+                textTotal.setVisibility(View.VISIBLE);
+            }
         });
     }
 }
