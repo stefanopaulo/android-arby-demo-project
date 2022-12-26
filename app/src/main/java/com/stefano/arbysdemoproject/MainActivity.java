@@ -18,29 +18,46 @@ public class MainActivity extends AppCompatActivity {
 
         increase();
         decrease();
+        orderButton();
     }
 
-    public void increase() {
+    private void increase() {
         Button btnAdd = findViewById(R.id.btnAdd);
 
         btnAdd.setOnClickListener(view -> {
-            quantity++;
+            if (quantity < 10) {
+                quantity++;
+            }
 
             TextView quantityText = findViewById(R.id.quantityText);
             quantityText.setText(String.valueOf(quantity));
         });
     }
 
-    public void decrease() {
+    private void decrease() {
         Button btnSub = findViewById(R.id.btnSub);
 
         btnSub.setOnClickListener(view -> {
-            if (quantity > 0) {
+            if (quantity > 1) {
                 quantity--;
             }
 
             TextView quantityText = findViewById(R.id.quantityText);
             quantityText.setText(String.valueOf(quantity));
+        });
+    }
+
+    private void orderButton() {
+        Button btnOrder = findViewById(R.id.btnOrder);
+
+        btnOrder.setOnClickListener(view -> {
+            TextView textTotal = findViewById(R.id.textTotal);
+
+            int totalPrice = quantity * 15;
+
+            String message = "Your total is $ " + totalPrice + "!";
+
+            textTotal.setText(message);
         });
     }
 }

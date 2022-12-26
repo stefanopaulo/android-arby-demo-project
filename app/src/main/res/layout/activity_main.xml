@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:text="0"
+            android:text="1"
             android:textSize="18sp" />
 
         <Button
@@ -90,7 +90,6 @@
         android:id="@+id/thanks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_total"
         android:layout_marginTop="16dp"
         android:text="Thanks for buying with us."
         android:textAlignment="center" />
