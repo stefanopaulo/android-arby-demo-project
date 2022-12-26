@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
             if (totalPrice > 0) {
                 textTotal.setVisibility(View.VISIBLE);
             }
+
+            EditText etName = findViewById(R.id.etName);
+            TextView thanks = findViewById(R.id.thanks);
+
+            thanks.setText("Thanks for buying with us, " + etName.getText().toString() + ".");
         });
     }
 }
