@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnSub = findViewById(R.id.btnSub);
 
         btnSub.setOnClickListener(view -> {
-            if (quantity > 1) {
+            if (quantity > 0) {
                 quantity--;
             }
 
@@ -62,14 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
             textTotal.setText(message);
 
-            if (totalPrice > 0) {
-                textTotal.setVisibility(View.VISIBLE);
-            }
-
             EditText etName = findViewById(R.id.etName);
             TextView thanks = findViewById(R.id.thanks);
 
-            thanks.setText("Thanks for buying with us, " + etName.getText().toString() + ".");
+            if (totalPrice > 0) {
+                textTotal.setVisibility(View.VISIBLE);
+                thanks.setText("Thanks for buying with us, " + etName.getText().toString() + ".");
+            }
         });
     }
 }
